@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-do-do: #8B1A1A;
+    --color-vang-dong: #C9922C;
+    --color-nau-giay: #F5E8C8;
+    --color-nau-toi: #2C1A0E;
+    --color-kem: #FDFAF4;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', 'Be Vietnam Pro', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FDFAF4;
+    color: #1a0a00;
+  }
+
+  .dark body {
+    background-color: #0A0A0A;
+    color: #F5E8C8;
+  }
+}
+
+@layer utilities {
+  .text-do-do { color: #8B1A1A; }
+  .bg-do-do { background-color: #8B1A1A; }
+  .text-vang-dong { color: #C9922C; }
+  .bg-vang-dong { background-color: #C9922C; }
+  .bg-nau-giay { background-color: #F5E8C8; }
+  .text-nau-toi { color: #2C1A0E; }
+  .bg-nau-toi { background-color: #2C1A0E; }
+  .border-vang-dong { border-color: #C9922C; }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, #0A0A0A 0%, #1a0500 40%, #2C1A0E 70%, #8B1A1A 100%);
+  }
+
+  .gradient-section {
+    background: linear-gradient(180deg, #FDFAF4 0%, #F5E8C8 100%);
+  }
+
+  .text-shadow-gold {
+    text-shadow: 0 2px 10px rgba(201, 146, 44, 0.4);
+  }
+
+  .timeline-line {
+    background: linear-gradient(to right, #8B1A1A, #C9922C, #8B1A1A);
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(139, 26, 26, 0.2);
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #F5E8C8;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #C9922C;
+    border-radius: 3px;
+  }
+}
+
+/* Vietnamese font */
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 700;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Timeline scrollbar */
+.timeline-scroll {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #C9922C #F5E8C8;
+}
+
+/* Dark mode */
+.dark .gradient-section {
+  background: linear-gradient(180deg, #0A0A0A 0%, #1a0a00 100%);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 20px 40px rgba(201, 146, 44, 0.15);
+}
+
+/* Animated underline */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #C9922C;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Pulse animation for timeline dots */
+@keyframes timeline-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 146, 44, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(201, 146, 44, 0); }
+}
+
+.timeline-dot-active {
+  animation: timeline-pulse 2s infinite;
+}
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
